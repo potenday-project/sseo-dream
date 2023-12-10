@@ -10,24 +10,13 @@ function App() {
 
   const fetchData = async (message: string) => {
     setIsLoading(true);
-    const responseData = await axios.post('https://1x2ep04v87.apigw.ntruss.com/test/hh-test/rFI3X7i7x7/json', {
-      body: {
-        messages: [
-          {
-            role: 'user',
-            content: message,
-          },
-        ],
-        maxTokens: 2048,
-      },
-      headers: {
-        'Content-Type': 'text/stream',
-        'X-NCP-CLOVASTUDIO-API-KEY':
-          'NTA0MjU2MWZlZTcxNDJiY25sZ68/c8HYjZvTffUOPq1/Hqp+MWTF3kFsGPPtDnLpp1yw5+wTxZDwAtBYdWCtZNoOHxIOXF8OVN0sRur81hsRzuiJ2dXbkjCofAG06yO/VER2WXjtfM6t9F7NfYEljdEURHMdIl8gItT8VZSYYgQRBUvbLmTSMdmGsc4n6TmTrSI4/VajPXlEcWAmv1JGwcjqBC/ptE3z8Ja+Sg6OxqY=',
-        'X-NCP-APIGW-API-KEY': 'fwc41Q4gKDC6MOwyL8p5NhKg4yLldocu3O093o3Y',
-        'X-NCP-CLOVASTUDIO-REQUEST-ID': '904c68b46fd24443b51be9245293b352',
-      },
-    });
+    const responseData = await axios.post(
+      'https://ifofflnpn5.apigw.ntruss.com/open_api/oepn_api_prod/info/json',
+      { body: { message } },
+      { params: { person: 'friends' } },
+    );
+
+    console.log(responseData);
 
     setData(responseData);
     setIsLoading(false);
