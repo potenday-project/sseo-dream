@@ -1,35 +1,52 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 
-import viteLogo from '../public/vite.svg';
+import axios from 'axios';
 
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
+export default function App() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useState('');
+
+  console.log(import.meta.env.VITE_CLOVASTUDIO_HOST);
+
+  const fetchData = async (message: string) => {
+    setIsLoading(true);
+    const responseData = await axios.post(
+      'https://ifofflnpn5.apigw.ntruss.com/open_api/oepn_api_prod/info/json',
+      { body: { message } },
+      { params: { person: 'friends' } },
+    );
+
+    console.log(responseData);
+
+    setData(responseData);
+    setIsLoading(false);
+  };
+
+  const handleClickButton = async () => {
+    await fetchData(value);
+  };
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((prevCount) => prevCount + 1)}>
-          count is {count}
+        <input type="text" placeholder="질문입력" onChange={(e) => setValue(e.target.value)} />
+        <button type="button" onClick={handleClickButton}>
+          질문
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setValue('');
+            setData({});
+          }}
+        >
+          초기화
+        </button>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <div>{isLoading ? '답변중...' : `답변: ${data?.data?.result?.message?.content ?? ''}`}</div>
     </>
   );
 }
-
-export default App;
