@@ -6,6 +6,6 @@ body {
   @apply bg-background;
 }
 
-.dark {
+.dark body {
   @apply bg-background-dark;
 }
