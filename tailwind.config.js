@@ -10,9 +10,9 @@ module.exports = {
         dark: '#FEF068',
       },
       background: {
-        DEFAULT: '#3A3A3A',
+        DEFAULT: '#292929',
         light: '#FFFFFF',
-        dark: '#3A3A3A',
+        dark: '#292929',
       },
       contentBackground: {
         DEFAULT: '#3A3A3A',
@@ -23,6 +23,11 @@ module.exports = {
         DEFAULT: '#FFFFFF',
         light: '#494949',
         dark: '#FFFFFF',
+      },
+      disabled: {
+        DEFAULT: '#878787',
+        light: '#878787',
+        dark: '#878787',
       },
       heading: {
         DEFAULT: '#FFFFFF',
