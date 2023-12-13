@@ -6,7 +6,7 @@ interface Props {
 
 function Title({ title, sequence, sequenceShown }: Props) {
   return (
-    <div className="flex items-center justify-between text-white text-7 font-bold font-['Pretendard'] leading-9">
+    <div className="pt-5 pb-5 m-5 flex items-center justify-between text-white text-7 font-bold font-['Pretendard'] leading-9">
       <div className="text-white text-2xl font-bold font-['Pretendard']">{title}</div>
       {sequenceShown && <div className="text-white text-xs ml-auto font-medium font-['Pretendard']">({sequence}/6)</div>}
     </div>
