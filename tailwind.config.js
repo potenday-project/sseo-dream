@@ -6,26 +6,32 @@ module.exports = {
     colors: {
       primary: {
         DEFAULT: '#FEF068',
+        light: '#FEF068',
         dark: '#FEF068',
       },
       background: {
-        DEFAULT: '#FFFFFF',
+        DEFAULT: '#3A3A3A',
+        light: '#FFFFFF',
         dark: '#3A3A3A',
       },
       contentBackground: {
-        DEFAULT: '#EBEBEB',
+        DEFAULT: '#3A3A3A',
+        light: '#EBEBEB',
         dark: '#3A3A3A',
       },
       font: {
-        DEFAULT: '#494949',
+        DEFAULT: '#FFFFFF',
+        light: '#494949',
         dark: '#FFFFFF',
       },
       heading: {
-        DEFAULT: '#000000',
+        DEFAULT: '#FFFFFF',
+        light: '#000000',
         dark: '#FFFFFF',
       },
       invert: {
         DEFAULT: '#292929',
+        light: '#292929',
         dark: '#292929',
       },
     },
