@@ -6,7 +6,7 @@ interface Props {
 
 function HeaderDataList({ dataList }: Props) {
   return (
-    <div className="left-[20px] top-[76px] absolute justify-start items-start gap-2 inline-flex">
+    <div className="justify-start items-start inline-flex">
       {dataList.map((data) => (
         <DataButton key={data} contents={data} />
       ))}
