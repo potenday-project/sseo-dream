@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import EtcTextArea from './EtcTextArea.tsx';
+import EtcTextArea from './EtcTextArea';
 
 interface Props {
   valueList: string[];
