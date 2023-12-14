@@ -1,6 +1,6 @@
 interface Props {
   title: string;
-  sequence: number;
+  sequence?: number;
   sequenceShown: boolean;
 }
 
