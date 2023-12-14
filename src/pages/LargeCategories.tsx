@@ -10,10 +10,10 @@ export default function LargeCategories() {
   ];
 
   return (
-    <>
+    <div className="m-auto min-h-screen max-w-2xl max-h-full bg-zinc-800">
       <HeaderDataList selectedDataList={[]} />
       <Title title="어떤 목적으로 글을 써드릴까요?" sequenceShown={false} />
       <PurposeList purposeList={purposes} />
-    </>
+    </div>
   );
 }

@@ -1,23 +1,23 @@
 import Title from '../layouts/Title';
 import HeaderDataList from '../layouts/HeaderDataList';
-import PostCategoryList from '../layouts/PostCategoryList';
+import ValueList from '../layouts/ValueList';
 
 interface Props {
   selectedDataList: string[];
   title: string;
   sequence: number;
-  postCategoryList: string[];
+  valueList: string[];
 }
 
-export default function MediumCategories({
-  selectedDataList, title, sequence, postCategoryList,
-}: Props) {
-  // ['업무목적', '인사/안부', '상사']
+export default function MediumCategories({ selectedDataList, title, sequence, valueList }: Props) {
   return (
-    <>
-      <HeaderDataList selectedDataList={selectedDataList} />
-      <Title title={title} sequence={sequence} sequenceShown />
-      <PostCategoryList postCategoryList={postCategoryList} />
-    </>
+    <div>
+      <div className="m-auto min-h-screen max-w-2xl max-h-full bg-zinc-800">
+        <HeaderDataList selectedDataList={selectedDataList} />
+        <Title title={title} sequence={sequence} sequenceShown />
+        <ValueList valueList={valueList} etcTitle={title} />
+      </div>
+      <footer className="h-20 -translate-y-full">rewre</footer>
+    </div>
   );
 }
