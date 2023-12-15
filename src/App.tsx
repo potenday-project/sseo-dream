@@ -23,13 +23,13 @@ function App() {
       {/*  sequence={2}*/}
       {/*  valueList={['상사', '동료', '거래처', '전사']}*/}
       {/*/>*/}
-      {/*<MediumCategories*/}
-      {/*  selectedDataList={['업무목적', '인사/안부', '상사']}*/}
-      {/*  title="받는 분과 보내는 분의 성함을 적어주세요"*/}
-      {/*  subTitle="선택"*/}
-      {/*  sequence={3}*/}
-      {/*  hasName*/}
-      {/*/>*/}
+      <MediumCategories
+        selectedDataList={['업무목적', '인사/안부', '상사']}
+        title="받는 분과 보내는 분의 성함을 적어주세요"
+        subTitle="선택"
+        sequence={3}
+        hasName
+      />
       <MediumCategories
         selectedDataList={['업무목적', '인사/안부', '상사']}
         title="쓰려는 내용의 키워드를 설명해주세요"

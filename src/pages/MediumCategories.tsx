@@ -2,7 +2,8 @@ import Title from '../layouts/Title';
 import HeaderDataList from '../layouts/HeaderDataList';
 import ValueList from '../layouts/ValueList';
 import PrevNextButtons from '../components/PrevNextButtons';
-import NameList from '../layouts/NameList';
+import NameInputList from '../layouts/NameInputList.tsx';
+import KeywordTextArea from '../layouts/KeywordTextArea.tsx';
 
 interface Props {
   selectedDataList: string[];
@@ -30,9 +31,11 @@ export default function MediumCategories({
           <HeaderDataList selectedDataList={selectedDataList} />
           <Title title={title} subTitle={subTitle} sequence={sequence} sequenceShown />
           {valueList && <ValueList valueList={valueList} etcTitle={title} />}
-          {hasName && <NameList />}
+          {hasName && <NameInputList />}
           {hasKeyword && (
-            <div className="flex flex-wrap items-center justify-start m-4">TEXTAREA</div>
+            <div className="flex flex-wrap items-center justify-start m-5 p-4">
+              <KeywordTextArea />
+            </div>
           )}
         </div>
         <footer className="h-24">
