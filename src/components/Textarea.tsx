@@ -9,7 +9,7 @@ function Textarea({ value, placeholder, isEditable, onChange }: TextareaProps) {
   return (
     <div>
       <textarea
-        className="resize-none w-full h-[416px] p-[14px] focus:outline-none text-font bg-contentBackground rounded-[6px] rounded-tl-none"
+        className="resize-none w-full h-[416px] p-[14px] focus:outline-none bg-contentBackground rounded-[6px] rounded-tl-none"
         value={value}
         onChange={onChange}
         placeholder={placeholder}

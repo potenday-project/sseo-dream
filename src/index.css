@@ -5,8 +5,10 @@
 body {
   @apply bg-background;
   @apply font-sans;
+  @apply text-font;
 }
 
 .dark body {
   @apply bg-background-dark;
+  @apply text-font-dark;
 }

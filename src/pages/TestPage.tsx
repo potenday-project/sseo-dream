@@ -2,7 +2,7 @@ import Letter from '../components/Letter';
 
 function TestPage() {
   return (
-    <div className="text-font">
+    <div>
       <h1>Test Page</h1>
       <Letter />
     </div>
