@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { EventData } from '../types/clova';
 import { UserData } from '../types/userData';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
+
 function parseData(data: string) {
   try {
     return JSON.parse(data.replaceAll('\n', '\\n'));
@@ -39,7 +41,7 @@ function useMessage() {
     setStatus('loading');
     try {
       const decoder = new TextDecoder();
-      const response = await fetch('http://localhost:3000/api/test', {
+      const response = await fetch(`${API_BASE_URL}/api/letter`, {
         method: 'POST',
         body: JSON.stringify(userData),
       });
