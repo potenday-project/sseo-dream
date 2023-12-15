@@ -46,6 +46,7 @@ export type LetterState = {
 export type LetterAction = {
   setUserSelectionResult: (userSelectionResult: UserSelectionResult) => void;
   setGeneratedLetterContents: (generatedLetterContents: GeneratedLetterContent[]) => void;
+  resetLetterStore: () => void;
 };
 
 export const useLetterStore = create<LetterState & LetterAction, [['zustand/devtools', never]]>(

@@ -24,7 +24,8 @@ function ResultPage() {
   const [isEditable, setIsEditable] = useState(false);
   const { onShowToast } = useToast();
   const { data = '', postUserData, status } = useLetter();
-  const { generatedLetterContents, setGeneratedLetterContents } = useLetterStore();
+  const { generatedLetterContents, setGeneratedLetterContents, resetLetterStore } =
+    useLetterStore();
 
   const tabs = generatedLetterContents.map((content, index) => ({
     label: TAB_LABEL[index],
@@ -90,6 +91,11 @@ function ResultPage() {
     onShowToast(TOAST_MESSAGE.SUCCESS, 'success');
   };
 
+  const handleClickNewLetterButton = () => {
+    // FIXME: 초기화면으로 이동 구현 필요
+    resetLetterStore();
+  };
+
   if (isEditable) {
     return (
       <ResultModify
@@ -119,7 +125,9 @@ function ResultPage() {
             복사하기
           </button>
         </div>
-        <button type="button">새글 쓰기</button>
+        <button type="button" onClick={handleClickNewLetterButton}>
+          새글 쓰기
+        </button>
       </div>
     </div>
   );
