@@ -1,4 +1,4 @@
-import useMessage from '../hooks/useMessage';
+import useLetter from '../hooks/useLetter';
 
 const DUMMY_DATA = {
   contentDescription: '나는 헤커톤을 진행하고 있는 동료들에게 응원의 글을 쓰고 싶어',
@@ -18,8 +18,8 @@ const statusText = {
   error: '에러 발생!',
 } as const;
 
-function Message() {
-  const { data, postUserData, status } = useMessage();
+function Letter() {
+  const { data, postUserData, status } = useLetter();
   return (
     <div>
       <button
@@ -34,4 +34,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default Letter;
