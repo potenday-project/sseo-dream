@@ -2,8 +2,8 @@ import Title from '../layouts/Title';
 import HeaderDataList from '../layouts/HeaderDataList';
 import ValueList from '../layouts/ValueList';
 import PrevNextButtons from '../components/PrevNextButtons';
-import NameInputList from '../layouts/NameInputList.tsx';
-import KeywordTextArea from '../layouts/KeywordTextArea.tsx';
+import NameInputList from '../layouts/NameInputList';
+import KeywordTextArea from '../layouts/KeywordTextArea';
 
 interface Props {
   selectedDataList: string[];
