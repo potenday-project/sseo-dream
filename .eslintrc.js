@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -26,7 +27,13 @@ module.exports = {
     },
   },
   rules: {
-    indent: ['error', 2],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+        useTabs: false,
+      },
+    ],
     'no-trailing-spaces': 'error',
     curly: 'error',
     'brace-style': 'error',
@@ -74,5 +81,12 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
     'react/jsx-one-expression-per-line': 'off',
+    'no-prototype-builtins': 'off',
+    'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
+    'object-curly-newline': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'no-unused-vars': 'off',
   },
 };
