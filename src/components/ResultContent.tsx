@@ -1,9 +1,8 @@
 import Textarea from './Textarea';
 import TabList from './TabList';
 
-const isEditable = false;
-
 type ResultContentProps = {
+  isEditable?: boolean;
   tabs: {
     label: string;
     isActive?: boolean;
@@ -12,10 +11,11 @@ type ResultContentProps = {
   text: string;
   disabled?: boolean;
   onClickTab: (index: number) => void;
-  onChangeTextarea: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeTextarea?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 function ResultContent({
+  isEditable = false,
   tabs,
   text,
   actions,

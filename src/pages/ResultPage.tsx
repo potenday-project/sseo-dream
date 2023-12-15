@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
-import ResetButton from '../components/ResetButton';
+import { useEffect, useState } from 'react';
+
+import IconButton from '../components/IconButton';
 import ResultContent from '../components/ResultContent';
+import ResultModify from '../components/ResultModify';
+
 import useLetter from '../hooks/useLetter';
-import { useLetterStore } from '../stores/letter';
 import useToast from '../hooks/useToast';
-import { TAB_LABEL, TOAST_MESSAGE } from '../components/constants/result';
+
+import { useLetterStore } from '../stores/letter';
+import { TAB_LABEL, TOAST_MESSAGE } from '../constants/result';
 
 const DUMMY_DATA = {
   contentDescription: '나는 헤커톤을 진행하고 있는 동료들에게 응원의 글을 쓰고 싶어',
@@ -17,9 +21,11 @@ const DUMMY_DATA = {
 } as const;
 
 function ResultPage() {
+  const [isEditable, setIsEditable] = useState(false);
   const { onShowToast } = useToast();
   const { data = '', postUserData, status } = useLetter();
   const { generatedLetterContents, setGeneratedLetterContents } = useLetterStore();
+
   const tabs = generatedLetterContents.map((content, index) => ({
     label: TAB_LABEL[index],
     isActive: content.isActive,
@@ -31,7 +37,7 @@ function ResultPage() {
     writing: data,
     complete: generatedLetterContents[activeIndex]?.content || '',
     error: '알수 없는 에러가 발생했습니다.',
-    init: '',
+    init: generatedLetterContents[activeIndex]?.content || '',
   };
 
   const handleClickTab = (index: number) => {
@@ -40,11 +46,6 @@ function ResultPage() {
       isActive: i === index,
     }));
     setGeneratedLetterContents(newGeneratedLetterContents);
-  };
-
-  const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log(e.target.value);
-    // setValue(e.target.value);
   };
 
   const handleClickResetButton = () => {
@@ -80,16 +81,46 @@ function ResultPage() {
     }
   }, [status]);
 
+  const handleClickModifyButton = () => {
+    setIsEditable(true);
+  };
+
+  const handleClickCopyButton = () => {
+    navigator.clipboard.writeText(textLookup[status]);
+    onShowToast(TOAST_MESSAGE.SUCCESS, 'success');
+  };
+
+  if (isEditable) {
+    return (
+      <ResultModify
+        initialText={textLookup[status]}
+        tabs={tabs}
+        onClickTab={handleClickTab}
+        setIsEditable={setIsEditable}
+      />
+    );
+  }
+
   return (
     <div className="p-10">
       <ResultContent
         tabs={tabs}
         onClickTab={handleClickTab}
-        onChangeTextarea={handleChangeTextarea}
         text={textLookup[status]}
         disabled={disabled}
-        actions={<ResetButton onClick={handleClickResetButton} disabled={disabled} />}
+        actions={<IconButton icon="reset" onClick={handleClickResetButton} disabled={disabled} />}
       />
+      <div>
+        <div>
+          <button type="button" onClick={handleClickModifyButton}>
+            수정하기
+          </button>
+          <button type="button" onClick={handleClickCopyButton}>
+            복사하기
+          </button>
+        </div>
+        <button type="button">새글 쓰기</button>
+      </div>
     </div>
   );
 }
