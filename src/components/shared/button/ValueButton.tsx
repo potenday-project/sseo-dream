@@ -15,7 +15,7 @@ export default function ValueButton({
       type="button"
       onClick={onClick}
       className={`flex px-3.5 py-3 rounded-md text-lg font-bold ${
-        isActive ? 'bg-yellow-200 text-zinc-800' : 'bg-neutral-700 text-white'
+        isActive ? 'bg-yellow-200 text-zinc-800' : 'bg-contentBackground text-white'
       }`}>
       {children}
     </button>
