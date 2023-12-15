@@ -4,7 +4,9 @@ import { UserData } from '../types/userData';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
 
-function parseData(data: string) {
+function parseData(data?: string) {
+  if (!data) return '';
+
   try {
     return JSON.parse(data.replaceAll('\n', '\\n'));
   } catch (e) {
@@ -14,15 +16,19 @@ function parseData(data: string) {
 
 function parseEventStreamMessage(eventString: string) {
   const dataList: EventData[] = [];
-  const events = eventString.split('\n\n'); // 이벤트별로 분리
+  const events = eventString.split(/(?=id:)/);
 
   events.forEach((event) => {
     if (!event) return;
 
+    const idMatch = event.match(/id:(.*)/)?.[1]?.trim();
+    const eventMatch = event.match(/event:(.*)/)?.[1]?.trim();
+    const dataMatch = event.match(/data:([\s\S]*)/)?.[1]?.trim();
+
     const eventData = {
-      id: event.match(/id:(.*)/)?.[1]?.trim(),
-      event: event.match(/event:(.*)/)?.[1]?.trim(),
-      data: parseData(event.split('data:')?.[1]),
+      id: idMatch,
+      event: eventMatch,
+      data: parseData(dataMatch),
     };
 
     dataList.push(eventData as EventData);
