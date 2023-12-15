@@ -81,7 +81,7 @@ function useLetter() {
       ? data.find((messageData) => messageData.event === 'result')?.data.message.content
       : data
           .filter((messageData) => messageData.event === 'token')
-          .map((messageData) => messageData.data.message.content)
+          .map((messageData) => messageData.data.message?.content || '')
           .join('');
 
   return {
