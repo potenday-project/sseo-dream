@@ -118,14 +118,14 @@ function ResultPage() {
       />
       <div>
         <div>
-          <button type="button" onClick={handleClickModifyButton}>
+          <button type="button" onClick={handleClickModifyButton} disabled={disabled}>
             수정하기
           </button>
-          <button type="button" onClick={handleClickCopyButton}>
+          <button type="button" onClick={handleClickCopyButton} disabled={disabled}>
             복사하기
           </button>
         </div>
-        <button type="button" onClick={handleClickNewLetterButton}>
+        <button type="button" onClick={handleClickNewLetterButton} disabled={disabled}>
           새글 쓰기
         </button>
       </div>
