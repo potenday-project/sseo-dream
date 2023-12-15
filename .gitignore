@@ -25,3 +25,6 @@ dist-ssr
 
 *.zip
 .vercel
+.env
+.env*.local
+.env.vercel

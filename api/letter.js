@@ -3,12 +3,11 @@ export const config = {
 };
 
 export default async function handler(req) {
-  const apiUrl = 'https://clovastudio.stream.ntruss.com/testapp/v1/chat-completions/HCX-002';
+  const apiUrl = process.env.CLOVA_API_URL;
   const apiHeaders = {
-    'X-NCP-CLOVASTUDIO-API-KEY':
-      'NTA0MjU2MWZlZTcxNDJiY6mHH42Cjo7EvOFNeUOFYQQrLkq7gwAGE2vyPIBIL6Mzye6cmY6Yarg06Ou7TGIobQI6/zXB+7mZsW4eB+GAQiH6QG9QdWNbmjHwy1fX/eEUTE/6sTTEwMOnfhr2gfg/nQPYpKSuJJ3VdnOhU8bCrZOlYRropXGWZZ7O9gtd9x7HPdSlKvitjI+CR3mhbiH4Xy+TIaYQz46dlSpUJgckkls=',
-    'X-NCP-APIGW-API-KEY': 'fwc41Q4gKDC6MOwyL8p5NhKg4yLldocu3O093o3Y',
-    'X-NCP-CLOVASTUDIO-REQUEST-ID': 'f3ccf427cf1d4106a85f6f22109c3b76',
+    'X-NCP-CLOVASTUDIO-API-KEY': process.env.CLOVA_API_KEY,
+    'X-NCP-APIGW-API-KEY': process.env.CLOVA_API_GW_KEY,
+    'X-NCP-CLOVASTUDIO-REQUEST-ID': process.env.CLOVA_STUDIO_REQUEST_ID,
     'Content-Type': 'application/json',
     Accept: 'text/event-stream',
   };
