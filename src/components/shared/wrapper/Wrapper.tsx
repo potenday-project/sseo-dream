@@ -11,15 +11,3 @@ type WrapperProps = {
 export function Wrapper({ children, className }: PropsWithChildren<WrapperProps>) {
   return <div className={className}>{children}</div>;
 }
-
-// import ValueList from '../../ValueList';
-// import NameInputList from '../../NameInputList';
-// import TextArea from '../textArea/TextArea';
-// import HeaderTags from '../../header/HeaderTags';
-
-// valueList?: string[];
-// hasName?: boolean;
-// hasKeyword?: boolean;
-
-// {hasName && <NameInputList />}
-// {hasKeyword && <TextArea />}
