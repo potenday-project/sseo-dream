@@ -1,10 +1,10 @@
-import Message from '../components/Message';
+import Letter from '../components/Letter';
 
 function TestPage() {
   return (
     <div className="text-font">
       <h1>Test Page</h1>
-      <Message />
+      <Letter />
     </div>
   );
 }

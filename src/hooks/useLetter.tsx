@@ -32,7 +32,7 @@ function parseEventStreamMessage(eventString: string) {
 
 type Status = 'init' | 'loading' | 'writing' | 'complete' | 'error';
 
-function useMessage() {
+function useLetter() {
   const [data, setData] = useState<EventData[]>([]);
   const [status, setStatus] = useState<Status>('init');
 
@@ -85,4 +85,4 @@ function useMessage() {
   };
 }
 
-export default useMessage;
+export default useLetter;
