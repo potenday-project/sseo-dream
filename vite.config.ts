@@ -8,7 +8,7 @@ import webfontDownload from 'vite-plugin-webfont-dl';
 export default defineConfig({
   plugins: [
     webfontDownload([
-      'https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css',
+      'https://github.com/orioncactus/pretendard/tree/v1.3.9/packages/pretendard/dist',
     ]),
     react(),
     svgr({
