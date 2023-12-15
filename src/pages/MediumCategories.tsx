@@ -4,6 +4,7 @@ import ValueList from '../layouts/ValueList';
 import PrevNextButtons from '../components/PrevNextButtons';
 import NameInputList from '../layouts/NameInputList';
 import KeywordTextArea from '../layouts/KeywordTextArea';
+import SizeList from '../layouts/SizeList.tsx';
 
 interface Props {
   selectedDataList: string[];
@@ -13,6 +14,7 @@ interface Props {
   valueList?: string[];
   hasName?: boolean;
   hasKeyword?: boolean;
+  sizeList?: string[];
 }
 
 export default function MediumCategories({
@@ -23,6 +25,7 @@ export default function MediumCategories({
   valueList,
   hasName,
   hasKeyword,
+  sizeList,
 }: Props) {
   return (
     <div className="m-auto min-h-screen max-w-2xl max-h-full bg-zinc-800">
@@ -37,6 +40,7 @@ export default function MediumCategories({
               <KeywordTextArea />
             </div>
           )}
+          {sizeList && <SizeList sizeList={sizeList} />}
         </div>
         <footer className="h-24">
           <PrevNextButtons isActive />

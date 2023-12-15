@@ -30,11 +30,17 @@ function App() {
       {/*  sequence={3}*/}
       {/*  hasName*/}
       {/*/>*/}
+      {/*<MediumCategories*/}
+      {/*  selectedDataList={['업무목적', '인사/안부', '상사']}*/}
+      {/*  title="쓰려는 내용의 키워드를 설명해주세요"*/}
+      {/*  sequence={4}*/}
+      {/*  hasKeyword*/}
+      {/*/>*/}
       <MediumCategories
         selectedDataList={['업무목적', '인사/안부', '상사']}
-        title="쓰려는 내용의 키워드를 설명해주세요"
-        sequence={4}
-        hasKeyword
+        title="어느정도 길이로 적어드릴까요?"
+        sequence={5}
+        sizeList={['짧게', '중간', '길게']}
       />
     </div>
   );
