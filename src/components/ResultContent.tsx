@@ -10,6 +10,7 @@ type ResultContentProps = {
   actions?: React.ReactNode;
   text: string;
   disabled?: boolean;
+  isLoading?: boolean;
   onClickTab: (index: number) => void;
   onChangeTextarea?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
@@ -20,13 +21,19 @@ function ResultContent({
   text,
   actions,
   disabled = false,
+  isLoading = false,
   onChangeTextarea,
   onClickTab,
 }: ResultContentProps) {
   return (
     <>
       <TabList tabs={tabs} onClick={onClickTab} actions={actions} disabled={disabled} />
-      <Textarea value={text} onChange={onChangeTextarea} isEditable={isEditable} />
+      <Textarea
+        value={text}
+        onChange={onChangeTextarea}
+        isEditable={isEditable}
+        isLoading={isLoading}
+      />
     </>
   );
 }

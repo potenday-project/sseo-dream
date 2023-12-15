@@ -115,6 +115,7 @@ function ResultPage() {
         text={textLookup[status]}
         disabled={disabled}
         actions={<IconButton icon="reset" onClick={handleClickResetButton} disabled={disabled} />}
+        isLoading={status === 'loading'}
       />
       <div>
         <div>
