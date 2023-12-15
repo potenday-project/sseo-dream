@@ -16,7 +16,7 @@ export default function SizeList({ sizeList }: Props) {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-start m-4">
+    <div className="flex flex-col justify-items-start m-4">
       {sizeList.map((size) => (
         <button
           key={size}
