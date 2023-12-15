@@ -11,7 +11,7 @@ function ResetButton({ onClick, ...props }: ResetButtonProps) {
         type="button"
         onClick={onClick}
         aria-label="reset-button"
-        className="flex justify-center items-center p-[10px] bg-contentBackground rounded-[5px]"
+        className="flex justify-center items-center p-[10px] bg-contentBackground rounded-[5px] disabled:bg-disabled disabled:cursor-not-allowed"
         {...props}>
         <ResetIcon />
       </button>

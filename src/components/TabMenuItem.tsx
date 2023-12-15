@@ -2,9 +2,9 @@ type TabMenuItemProps = {
   isActive?: boolean;
   label: string;
   onClick?: () => void;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-function TabMenuItem({ label, isActive, onClick }: TabMenuItemProps) {
+function TabMenuItem({ label, isActive, onClick, ...props }: TabMenuItemProps) {
   return (
     <button
       type="button"
@@ -12,7 +12,7 @@ function TabMenuItem({ label, isActive, onClick }: TabMenuItemProps) {
         isActive ? 'text-primary' : 'text-disabled'
       }`}
       onClick={onClick}
-    >
+      {...props}>
       {label}
     </button>
   );
