@@ -6,6 +6,8 @@ import Step5 from '../components/funnel/Step5';
 // import Step6 from '../components/funnel/Step6';
 // import Step7 from '../components/funnel/Step7';
 
+// import FunnelTest from '../components/Funnel/FunnelTest';
+
 export default function MainPage() {
   return <Step5 />;
 }
