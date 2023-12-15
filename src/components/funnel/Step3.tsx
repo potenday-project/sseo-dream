@@ -2,6 +2,7 @@ import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
 import HeaderTags from '../header/HeaderTags';
 import Title from '../shared/title/Title';
 import ValueList from '../ValueList';
+import PrevNextButtons from '../PrevNextButtons';
 
 const valueList = ['상사', '동료', '거래처', '전사'];
 
