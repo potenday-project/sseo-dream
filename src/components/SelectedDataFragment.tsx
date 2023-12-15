@@ -4,8 +4,8 @@ interface Props {
 
 export default function SelectedDataFragment({ contents }: Props) {
   return (
-    <div className="px-2.5 py-2 bg-neutral-700 rounded-md justify-center items-center gap-2 inline-flex">
-      <div className="text-white text-md font-bold font-['Pretendard']">{contents}</div>
+    <div className="flex gap-2 px-2.5 py-2 bg-neutral-700 rounded-md text-white text-md font-bold">
+      <div className="">{contents}</div>
     </div>
   );
 }
