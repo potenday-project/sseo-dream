@@ -46,6 +46,7 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
   };
 
   return (
+    // FIXME: 병합 후 배경색상 확인
     <div className="p-10 fixed left-0 top-0 w-full h-full bg-background overflow-auto">
       <ResultContent
         tabs={tabs}
