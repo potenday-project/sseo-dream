@@ -10,3 +10,24 @@ export const PURPOSES = [
   { content: '업무', svgName: 'working' },
   { content: '개인', svgName: 'personal' },
 ] as const;
+
+export const STEPS = [
+  'purpose',
+  'type',
+  'recipientCategory',
+  'senderName',
+  'recipientName',
+  'contentDescription',
+  'sentenceLength',
+] as const;
+
+export const SENDER_RECIPIENT = [
+  {
+    content: '받는 분 성함',
+    value: 'recipientName',
+  },
+  {
+    content: '보내는 분 성함',
+    value: 'senderName',
+  },
+] as const;
