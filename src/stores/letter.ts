@@ -43,6 +43,7 @@ const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
 const INITIAL_ETC_SHOWN: EtcShown = {
   type: false,
   recipientCategory: false,
+  sentenceLength: false,
 };
 
 const INITIAL_STATE = {
