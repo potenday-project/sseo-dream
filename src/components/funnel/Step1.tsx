@@ -1,11 +1,12 @@
-import Title from '../shared/title/Title';
-import PurposeList from '../purpose/PurposeButtons';
+import { PropsWithChildren } from 'react';
 
-export default function Step1() {
+import Title from '../shared/title/Title';
+
+export default function Step1({ children }: PropsWithChildren) {
   return (
     <>
       <Title sequenceShown={false}>어떤 목적으로 글을 써드릴까요?</Title>
-      <PurposeList />
+      {children}
     </>
   );
 }

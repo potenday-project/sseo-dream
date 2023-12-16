@@ -1,10 +1,11 @@
+import { PropsWithChildren } from 'react';
+
 import { MediumCategoryWrapper, Wrapper } from '../shared/wrapper/Wrapper';
 import HeaderTags from '../header/HeaderTags';
 import Input from '../shared/input/Input';
 import Title from '../shared/title/Title';
-import PrevNextButtons from '../PrevNextButtons';
 
-export default function Step4() {
+export default function Step4({ children }: PropsWithChildren) {
   return (
     <MediumCategoryWrapper>
       <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
@@ -16,7 +17,7 @@ export default function Step4() {
           <Input key={item}>{item}</Input>
         ))}
       </Wrapper>
-      <PrevNextButtons />
+      {children}
     </MediumCategoryWrapper>
   );
 }

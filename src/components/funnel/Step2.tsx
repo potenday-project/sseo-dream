@@ -1,8 +1,9 @@
+import { PropsWithChildren } from 'react';
+
 import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
 import Title from '../shared/title/Title';
 import HeaderTags from '../header/HeaderTags';
 import ValueList from '../ValueList';
-import PrevNextButtons from '../PrevNextButtons';
 
 const valueList = [
   '기념일/명절',
@@ -14,7 +15,7 @@ const valueList = [
   '사과/수습',
 ];
 
-export default function Step2() {
+export default function Step2({ children }: PropsWithChildren) {
   return (
     <MediumCategoryWrapper>
       <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
@@ -22,7 +23,7 @@ export default function Step2() {
         어떤 글을 써드릴까요?
       </Title>
       <ValueList valueList={valueList} hasEtc />
-      <PrevNextButtons />
+      {children}
     </MediumCategoryWrapper>
   );
 }
