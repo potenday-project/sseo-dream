@@ -124,7 +124,7 @@ function ResultPage() {
       <Title sequence={2} sequenceShown>
         <div className="flex items-center">
           <button type="button" onClick={handleClickPrevButton}>
-            <div className="bg-contentBackground py-[8px] px-[11px] mr-[9px] rounded-[40px]">
+            <div className="bg-contentBackground py-[8px] px-[11px] mt-[-4px] mr-[9px] rounded-[40px]">
               <IconPrev />
             </div>
           </button>
