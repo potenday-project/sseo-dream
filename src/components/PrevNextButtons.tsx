@@ -13,7 +13,7 @@ export default function PrevNextButtons({
   onClickNext,
   selectionKey,
 }: PrevNextButtonsProps) {
-  const { userSelectionResult, setHeaderTags } = useLetterStore();
+  const { userSelectionResult } = useLetterStore();
 
   return (
     <footer className="flex p-4 items-center justify-center mt-auto">
@@ -23,7 +23,6 @@ export default function PrevNextButtons({
         disabled={selectionKey && !userSelectionResult[selectionKey]}
         onClick={() => {
           onClickNext();
-          setHeaderTags();
         }}>
         다음
       </FooterButton>

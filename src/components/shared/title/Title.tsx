@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import { STEPS } from '../../../constants/result';
 
 type TitleProps = {
   subTitle?: string;
@@ -14,7 +15,9 @@ function Title({ subTitle, sequence, sequenceShown, children }: PropsWithChildre
         {subTitle && <strong className="text-xl font-bold text-neutral-400">{subTitle}</strong>}
       </span>
       {sequenceShown && (
-        <span className="text-xs ml-auto font-medium text-white">{`(${sequence}/6)`}</span>
+        <span className="text-xs ml-auto font-medium text-white">{`(${sequence}/${
+          STEPS.length - 1
+        })`}</span>
       )}
     </div>
   );

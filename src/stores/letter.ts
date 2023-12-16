@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import extractNonEmptyValues from '../utils/extractNonEmptyValues';
 
 export type UserSelectionResult = {
   contentDescription: string;
@@ -57,7 +56,6 @@ export type LetterState = {
   userSelectionResult: UserSelectionResult;
   generatedLetterContents: GeneratedLetterContent[];
   etcShown: EtcShown;
-  headerTags: Array<string | number>;
 };
 
 export type LetterAction = {
@@ -66,7 +64,6 @@ export type LetterAction = {
   resetLetterStore: () => void;
   setEtcShown: (etcShown: EtcShown) => void;
   resetEtcShown: () => void;
-  setHeaderTags: () => void;
 };
 
 export const useLetterStore = create<LetterState & LetterAction, [['zustand/devtools', never]]>(
@@ -104,16 +101,6 @@ export const useLetterStore = create<LetterState & LetterAction, [['zustand/devt
         ...state,
         etcShown: INITIAL_ETC_SHOWN,
       }));
-    },
-    setHeaderTags: () => {
-      set((state) => {
-        const values = extractNonEmptyValues(state.userSelectionResult);
-
-        return {
-          ...state,
-          headerTags: values,
-        };
-      });
     },
   })),
 );
