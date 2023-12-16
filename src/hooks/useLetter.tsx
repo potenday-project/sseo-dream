@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
 import { EventData } from '../types/clova';
-import { UserData } from '../types/userData';
+import { UserSelectionResult } from '../stores/letter';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
 
@@ -42,7 +43,7 @@ function useLetter() {
   const [data, setData] = useState<EventData[]>([]);
   const [status, setStatus] = useState<Status>('init');
 
-  const postUserData = async (userData: UserData) => {
+  const postUserData = async (userData: UserSelectionResult) => {
     setData([]);
     setStatus('loading');
     try {

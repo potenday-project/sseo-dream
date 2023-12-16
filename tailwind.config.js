@@ -56,6 +56,7 @@ module.exports = {
       sans: ['Pretendard', 'sans-serif'],
     },
     fontSize: {
+      s: '12px',
       sm: '14px',
       base: '16px',
       l: '18px',
