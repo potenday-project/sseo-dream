@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { useLetterStore } from '../../stores/letter';
-
 import PrevNextButtons from '../PrevNextButtons';
 import ValueList from '../ValueList';
 import SentenceAlert from '../setence-length/SentenceAlert';
@@ -14,19 +12,16 @@ const SENTENCE_LENGTH_DATA = [
     id: 1,
     title: '짧은 글',
     description: '100자',
-    length: 100,
   },
   {
     id: 2,
     title: '중간 글',
     description: '200자',
-    length: 200,
   },
   {
     id: 3,
     title: '긴 글',
     description: '300자',
-    length: 300,
   },
 ];
 
@@ -53,7 +48,7 @@ export default function Step6({ onClickPrev, onClickNext }: StepProps) {
           <div>어느정도 길이로 써드릴까요?</div>
           <div className="font-light text-sm">{description}</div>
         </Title>
-        <ValueList valueList={valueList} selectionKey="sentenceLength" />
+        <ValueList valueList={valueList} selectionKey="letterSentence" />
         <PrevNextButtons onClickNext={handleClickNext} onClickPrev={onClickPrev} />
       </MediumCategoryWrapper>
       {isOpenAlert && (

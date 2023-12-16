@@ -21,8 +21,14 @@ export default async function handler(req) {
     senderName, // 보내는 사람의 이름 !! [string]
     recipientName, // 받는 사람의 이름 !! [string]
     contentDescription, // 쓰려는 내용의 설명 [string]
-    sentenceLength, // 문장 길이 !! [number]
+    letterSentence, // 문장 길이 !! ['짧은 글', '중간 글', '긴 글']
   } = userData;
+
+  const letterSentenceMap = {
+    '짧은 글': 100,
+    '중간 글': 200,
+    '긴 글': 300,
+  };
 
   const messages = [
     { role: 'system', content: `글의 목적: ${purpose}적인 편지` },
@@ -35,7 +41,7 @@ export default async function handler(req) {
     { role: 'system', content: `쓰려는 내용의 설명: ${contentDescription}` },
     {
       role: 'user',
-      content: `편지를 써줘 편지길이는 총 ${sentenceLength}글자로 적어줘`,
+      content: `편지를 써줘 편지길이는 총 ${letterSentenceMap[letterSentence]}글자로 적어줘`,
     },
   ];
 

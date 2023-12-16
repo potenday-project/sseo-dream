@@ -17,7 +17,7 @@ export const STEPS = [
   'recipientCategory',
   'Names',
   'contentDescription',
-  'sentenceLength',
+  'letterSentence',
   'loader',
   'result',
 ] as const;

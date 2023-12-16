@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
 import HeaderTag from './HeaderTag';
 
 import { useLetterStore } from '../../../stores/letter';
 
 function HeaderTags() {
-  const { headerTags, setHeaderTags } = useLetterStore();
-
-  useEffect(() => {
-    setHeaderTags();
-  }, [setHeaderTags]);
+  const { userSelectionResult } = useLetterStore();
 
   return (
     <div className="pt-8 px-5 flex gap-2 whitespace-nowrap">
-      {headerTags.map((tag) => (
-        <HeaderTag key={tag}>{tag}</HeaderTag>
-      ))}
+      {userSelectionResult.purpose && <HeaderTag>{userSelectionResult.purpose}</HeaderTag>}
+      {userSelectionResult.type && <HeaderTag>{userSelectionResult.type}</HeaderTag>}
+      {userSelectionResult.recipientCategory && (
+        <HeaderTag>{userSelectionResult.recipientCategory}</HeaderTag>
+      )}
+      {userSelectionResult.letterSentence && (
+        <HeaderTag>{userSelectionResult.letterSentence}</HeaderTag>
+      )}
     </div>
   );
 }

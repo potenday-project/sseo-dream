@@ -37,11 +37,12 @@ export default function LetterFunnel() {
           onClickPrev={() => setStep('recipientCategory')}
           onClickNext={() => setStep('contentDescription')}
         />
+        ㄴ
       </Funnel.Step>
       <Funnel.Step name="contentDescription">
-        <Step5 onClickPrev={() => setStep('Names')} onClickNext={() => setStep('sentenceLength')} />
+        <Step5 onClickPrev={() => setStep('Names')} onClickNext={() => setStep('letterSentence')} />
       </Funnel.Step>
-      <Funnel.Step name="sentenceLength">
+      <Funnel.Step name="letterSentence">
         <Step6
           onClickPrev={() => setStep('contentDescription')}
           onClickNext={() => setStep('loader')}
@@ -49,12 +50,12 @@ export default function LetterFunnel() {
       </Funnel.Step>
       <Funnel.Step name="loader">
         <Step7
-          onClickPrev={() => setStep('sentenceLength')}
+          onClickPrev={() => setStep('letterSentence')}
           onClickNext={() => setStep('result')}
         />
       </Funnel.Step>
       <Funnel.Step name="result">
-        <Step8 onClickPrev={() => setStep('sentenceLength')} onClickNext={() => setStep('type')} />
+        <Step8 onClickPrev={() => setStep('letterSentence')} onClickNext={() => setStep('type')} />
       </Funnel.Step>
     </Funnel>
   );
