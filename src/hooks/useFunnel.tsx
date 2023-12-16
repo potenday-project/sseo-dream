@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
 
-import FunnelMain from '../components/Funnel-2/FunnelMain';
-import FunnelStep from '../components/Funnel-2/FunnelStep';
+import FunnelMain from '../components/funnel/FunnelMain';
+import FunnelStep from '../components/funnel/FunnelStep';
 
-import { NonEmptyArray, FunnelStepProps, FunnelProps } from '../components/Funnel-2/types';
+import { NonEmptyArray, FunnelStepProps, FunnelProps } from '../components/funnel/types';
 
 const useFunnel = <Steps extends NonEmptyArray<string>>(_: Steps, defaultStep: Steps[number]) => {
   const [step, setStep] = useState(defaultStep);
