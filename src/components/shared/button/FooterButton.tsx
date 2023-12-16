@@ -4,6 +4,7 @@ type Button = {
   className?: string;
   onClick?: () => void;
   isActive?: boolean;
+  disabled?: boolean;
 };
 
 export default function FooterButton({
@@ -11,20 +12,24 @@ export default function FooterButton({
   className,
   onClick,
   isActive = false,
+  disabled = false,
 }: PropsWithChildren<Button>) {
   const classes = {
     default:
-      'w-full mx-2 py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-neutral-700 text-white',
+      'w-full mx-2 py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white',
     custom: className ?? '',
-    isActive: 'bg-yellow-200 text-zinc-500',
+    isActive: 'bg-primary text-font-light',
   };
 
   return (
-    <div
-      className={`${className ? classes.custom : classes.default} ${isActive && classes.isActive}`}>
-      <button type="button" onClick={onClick}>
-        {children}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className={` ${className ? classes.custom : classes.default} ${
+        isActive && classes.isActive
+      }`}>
+      {children}
+    </button>
   );
 }
