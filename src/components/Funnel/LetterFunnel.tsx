@@ -37,7 +37,6 @@ export default function LetterFunnel() {
           onClickPrev={() => setStep('recipientCategory')}
           onClickNext={() => setStep('contentDescription')}
         />
-        ㄴ
       </Funnel.Step>
       <Funnel.Step name="contentDescription">
         <Step5 onClickPrev={() => setStep('Names')} onClickNext={() => setStep('letterSentence')} />
