@@ -8,7 +8,7 @@ type PurposeButtons = {
 };
 
 function PurposeButtons({ onClickNext }: PurposeButtons) {
-  const { setUserSelectionResult, userSelectionResult } = useLetterStore((state) => state);
+  const { setUserSelectionResult, userSelectionResult, setHeaderTags } = useLetterStore();
 
   return (
     <div className="m-1 px-5 h-[80vh] flex items-center justify-center">
@@ -17,9 +17,10 @@ function PurposeButtons({ onClickNext }: PurposeButtons) {
           key={purpose.content}
           purpose={purpose}
           onClick={() => {
+            setHeaderTags();
             setUserSelectionResult({
               ...userSelectionResult,
-              contentDescription: purpose.content,
+              purpose: purpose.content,
             });
             onClickNext();
           }}>
