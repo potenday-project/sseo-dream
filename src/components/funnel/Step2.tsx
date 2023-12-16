@@ -1,10 +1,11 @@
 import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
 import Title from '../shared/title/Title';
-import HeaderTags from '../header/HeaderTags';
 import ValueList from '../ValueList';
 import PrevNextButtons from '../PrevNextButtons';
 
-const valueList = [
+import { StepProps } from './types';
+
+const VALUE_LIST = [
   '기념일/명절',
   '인사/안부',
   '축하/감사',
@@ -12,17 +13,17 @@ const valueList = [
   '요청/제안',
   '문의/답변',
   '사과/수습',
+  '그외',
 ];
 
-export default function Step2() {
+export default function Step2({ onClickPrev, onClickNext }: StepProps) {
   return (
     <MediumCategoryWrapper>
-      <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
       <Title sequence={1} sequenceShown>
         어떤 글을 써드릴까요?
       </Title>
-      <ValueList valueList={valueList} hasEtc />
-      <PrevNextButtons />
+      <ValueList valueList={VALUE_LIST} selectionKey="type" />
+      <PrevNextButtons selectionKey="type" onClickPrev={onClickPrev} onClickNext={onClickNext} />
     </MediumCategoryWrapper>
   );
 }

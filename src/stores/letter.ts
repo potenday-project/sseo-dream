@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import extractNonEmptyValues from '../utils/extractNonEmptyValues';
 
-type UserSelectionResult = {
+export type UserSelectionResult = {
   contentDescription: string;
   purpose: '개인' | '업무' | 'none';
   recipientCategory: string;
@@ -16,14 +17,19 @@ type GeneratedLetterContent = {
   isActive: boolean;
 };
 
+export type EtcShown = {
+  type: boolean;
+  recipientCategory: boolean;
+};
+
 const INITIAL_USER_SELECTION_RESULT: UserSelectionResult = {
-  contentDescription: '',
   purpose: 'none',
+  type: '',
   recipientCategory: '',
   recipientName: '',
   senderName: '',
+  contentDescription: '',
   sentenceLength: 0,
-  type: '',
 };
 
 const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
@@ -33,20 +39,32 @@ const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
   },
 ];
 
+const INITIAL_ETC_SHOWN: EtcShown = {
+  type: false,
+  recipientCategory: false,
+};
+
 const INITIAL_STATE = {
   userSelectionResult: INITIAL_USER_SELECTION_RESULT,
   generatedLetterContents: INITIAL_GENERATED_LETTER_CONTENTS,
+  etcShown: INITIAL_ETC_SHOWN,
+  headerTags: [],
 };
 
 export type LetterState = {
   userSelectionResult: UserSelectionResult;
   generatedLetterContents: GeneratedLetterContent[];
+  etcShown: EtcShown;
+  headerTags: Array<string | number>;
 };
 
 export type LetterAction = {
   setUserSelectionResult: (userSelectionResult: UserSelectionResult) => void;
   setGeneratedLetterContents: (generatedLetterContents: GeneratedLetterContent[]) => void;
   resetLetterStore: () => void;
+  setEtcShown: (etcShown: EtcShown) => void;
+  resetEtcShown: () => void;
+  setHeaderTags: () => void;
 };
 
 export const useLetterStore = create<LetterState & LetterAction, [['zustand/devtools', never]]>(
@@ -72,6 +90,28 @@ export const useLetterStore = create<LetterState & LetterAction, [['zustand/devt
         ...state,
         ...INITIAL_STATE,
       }));
+    },
+    setEtcShown: (etcShown) => {
+      set((state) => ({
+        ...state,
+        etcShown,
+      }));
+    },
+    resetEtcShown: () => {
+      set((state) => ({
+        ...state,
+        etcShown: INITIAL_ETC_SHOWN,
+      }));
+    },
+    setHeaderTags: () => {
+      set((state) => {
+        const values = extractNonEmptyValues(state.userSelectionResult);
+
+        return {
+          ...state,
+          headerTags: values,
+        };
+      });
     },
   })),
 );

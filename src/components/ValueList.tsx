@@ -1,44 +1,58 @@
-import { useState } from 'react';
 import Input from './shared/input/Input';
 import ValueButton from './shared/button/ValueButton';
 
-interface ValueListProps {
-  valueList: string[];
-  hasEtc?: boolean;
-}
+import { EtcShown, UserSelectionResult, useLetterStore } from '../stores/letter';
 
-export default function ValueList({ valueList, hasEtc = false }: ValueListProps) {
-  const [currentValue, setCurrentValue] = useState('');
-  const [etcShown, setEtcShown] = useState(false);
+type ValueListProps = {
+  valueList: string[];
+  selectionKey: Extract<keyof EtcShown, keyof UserSelectionResult>;
+};
+
+export default function ValueList({ valueList, selectionKey }: ValueListProps) {
+  const { etcShown, setEtcShown, userSelectionResult, setUserSelectionResult } = useLetterStore();
 
   const handleClick = (value: string) => {
-    setEtcShown(false);
-
-    setCurrentValue(value);
+    setEtcShown({ ...etcShown, [selectionKey]: false });
+    setUserSelectionResult({ ...userSelectionResult, [selectionKey]: value });
   };
 
-  const handleEtcClick = () => {
-    setEtcShown(true);
+  const handleClickEtc = () => {
+    if (etcShown[selectionKey]) {
+      return;
+    }
 
-    setCurrentValue('그외');
+    setEtcShown({ ...etcShown, [selectionKey]: true });
+    setUserSelectionResult({ ...userSelectionResult, [selectionKey]: '' });
+  };
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserSelectionResult({ ...userSelectionResult, [selectionKey]: e.target.value });
   };
 
   return (
     <div className="m-4 mt-7 flex flex-wrap gap-x-3 gap-y-5">
-      {valueList.map((value) => (
-        <ValueButton
-          key={value}
-          isActive={value === currentValue}
-          onClick={() => handleClick(value)}>
-          {value}
-        </ValueButton>
-      ))}
-      {hasEtc && (
-        <ValueButton isActive={currentValue === '그외'} onClick={handleEtcClick}>
-          그외
-        </ValueButton>
+      {valueList.map((value) => {
+        if (value === '그외') {
+          return (
+            <ValueButton key={value} isActive={etcShown[selectionKey]} onClick={handleClickEtc}>
+              {value}
+            </ValueButton>
+          );
+        }
+        return (
+          <ValueButton
+            key={value}
+            isActive={!etcShown[selectionKey] && value === userSelectionResult[selectionKey]}
+            onClick={() => handleClick(value)}>
+            {value}
+          </ValueButton>
+        );
+      })}
+      {etcShown[selectionKey] && (
+        <Input value={userSelectionResult[selectionKey]} onChange={handleChangeInput}>
+          그외 어떤 글을 써드릴까요?
+        </Input>
       )}
-      {etcShown && <Input>그외 어떤 글을 써드릴까요?</Input>}
     </div>
   );
 }

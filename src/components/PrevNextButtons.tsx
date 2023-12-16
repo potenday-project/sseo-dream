@@ -1,10 +1,32 @@
 import FooterButton from './shared/button/FooterButton';
 
-export default function PrevNextButtons() {
+import { UserSelectionResult, useLetterStore } from '../stores/letter';
+
+type PrevNextButtonsProps = {
+  onClickPrev: () => void;
+  onClickNext: () => void;
+  selectionKey?: keyof UserSelectionResult;
+};
+
+export default function PrevNextButtons({
+  onClickPrev,
+  onClickNext,
+  selectionKey,
+}: PrevNextButtonsProps) {
+  const { userSelectionResult, setHeaderTags } = useLetterStore();
+
   return (
     <footer className="flex p-4 items-center justify-center mt-auto">
-      <FooterButton>이전</FooterButton>
-      <FooterButton isActive>다음</FooterButton>
+      <FooterButton onClick={onClickPrev}>이전</FooterButton>
+      <FooterButton
+        isActive={selectionKey && !!userSelectionResult[selectionKey]}
+        disabled={selectionKey && !userSelectionResult[selectionKey]}
+        onClick={() => {
+          onClickNext();
+          setHeaderTags();
+        }}>
+        다음
+      </FooterButton>
     </footer>
   );
 }

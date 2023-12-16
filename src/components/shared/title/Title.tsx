@@ -9,9 +9,9 @@ type TitleProps = {
 function Title({ subTitle, sequence, sequenceShown, children }: PropsWithChildren<TitleProps>) {
   return (
     <div className="p-5 flex items-center break-keep font-bold text-white">
-      <span className="text-2xl font-bold text-white max-w-[400px] w-full">
+      <span className="text-xl font-bold text-white max-w-[400px] w-full">
         {children}
-        {subTitle && <strong className="text-2xl font-bold text-neutral-400">{subTitle}</strong>}
+        {subTitle && <strong className="text-xl font-bold text-neutral-400">{subTitle}</strong>}
       </span>
       {sequenceShown && (
         <span className="text-xs ml-auto font-medium text-white">{`(${sequence}/6)`}</span>

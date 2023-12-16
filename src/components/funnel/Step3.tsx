@@ -1,20 +1,24 @@
 import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
-import HeaderTags from '../header/HeaderTags';
 import Title from '../shared/title/Title';
 import ValueList from '../ValueList';
 import PrevNextButtons from '../PrevNextButtons';
 
-const valueList = ['상사', '동료', '거래처', '전사'];
+import { StepProps } from './types';
 
-export default function Step3() {
+const VALUE_LIST = ['상사', '동료', '거래처', '전사', '그외'];
+
+export default function Step3({ onClickPrev, onClickNext }: StepProps) {
   return (
     <MediumCategoryWrapper>
-      <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
       <Title sequence={2} sequenceShown>
         누구에게 쓰는 글일까요?
       </Title>
-      <ValueList valueList={valueList} hasEtc />
-      <PrevNextButtons />
+      <ValueList valueList={VALUE_LIST} selectionKey="recipientCategory" />
+      <PrevNextButtons
+        selectionKey="recipientCategory"
+        onClickPrev={onClickPrev}
+        onClickNext={onClickNext}
+      />
     </MediumCategoryWrapper>
   );
 }
