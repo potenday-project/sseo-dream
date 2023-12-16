@@ -1,13 +1,18 @@
+import { useEffect } from 'react';
 import HeaderTag from './HeaderTag';
 
-interface HeaderTagsProps {
-  selectedDataList: string[];
-}
+import { useLetterStore } from '../../../stores/letter';
 
-function HeaderTags({ selectedDataList }: HeaderTagsProps) {
+function HeaderTags() {
+  const { headerTags, setHeaderTags } = useLetterStore();
+
+  useEffect(() => {
+    setHeaderTags();
+  }, [setHeaderTags]);
+
   return (
     <div className="pt-8 px-5 flex gap-2 whitespace-nowrap">
-      {selectedDataList.map((tag) => (
+      {headerTags.map((tag) => (
         <HeaderTag key={tag}>{tag}</HeaderTag>
       ))}
     </div>

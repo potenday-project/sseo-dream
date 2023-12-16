@@ -1,67 +1,45 @@
 import Step1 from './Step1';
-import PurposeList from '../purpose/PurposeButtons';
-
-import useFunnel from '../../hooks/useFunnel';
 import Step2 from './Step2';
-import PrevNextButtons from '../PrevNextButtons';
 import Step3 from './Step3';
 import Step4 from './Step4';
 import Step5 from './Step5';
 
-const steps = [
-  'purpose',
-  'type',
-  'recipientCategory',
-  'senderName',
-  'recipientName',
-  'contentDescription',
-  'sentenceLength',
-] as const;
+import useFunnel from '../../hooks/useFunnel';
+
+import { STEPS } from '../../constants/result';
+
 export default function LetterFunnel() {
-  const [Funnel, setStep] = useFunnel(steps, 'purpose');
+  const [Funnel, setStep] = useFunnel(STEPS, 'purpose');
 
   return (
     <Funnel>
       <Funnel.Step name="purpose">
-        <Step1>
-          <PurposeList
-            onClickNext={() => {
-              setStep('type');
-            }}
-          />
-        </Step1>
+        <Step1
+          onClickNext={() => {
+            setStep('type');
+          }}
+        />
       </Funnel.Step>
       <Funnel.Step name="type">
-        <Step2>
-          <PrevNextButtons
-            onClickPrev={() => setStep('purpose')}
-            onClickNext={() => setStep('recipientCategory')}
-          />
-        </Step2>
+        <Step2
+          onClickPrev={() => setStep('purpose')}
+          onClickNext={() => setStep('recipientCategory')}
+        />
       </Funnel.Step>
       <Funnel.Step name="recipientCategory">
-        <Step3>
-          <PrevNextButtons
-            onClickPrev={() => setStep('type')}
-            onClickNext={() => setStep('senderName')}
-          />
-        </Step3>
+        <Step3 onClickPrev={() => setStep('type')} onClickNext={() => setStep('senderName')} />
       </Funnel.Step>
       <Funnel.Step name="senderName">
-        <Step4>
-          <PrevNextButtons
-            onClickPrev={() => setStep('recipientCategory')}
-            onClickNext={() => setStep('recipientName')}
-          />
-        </Step4>
+        <Step4
+          onClickPrev={() => setStep('recipientCategory')}
+          onClickNext={() => setStep('recipientName')}
+        />
       </Funnel.Step>
       <Funnel.Step name="recipientName">
-        <Step5>
-          <PrevNextButtons
-            onClickPrev={() => setStep('senderName')}
-            onClickNext={() => setStep('contentDescription')}
-          />
-        </Step5>
+        <Step5
+          onClickPrev={() => setStep('senderName')}
+          onClickNext={() => setStep('contentDescription')}
+        />
       </Funnel.Step>
       <Funnel.Step name="contentDescription">
         <button type="button" onClick={() => setStep('sentenceLength')}>
