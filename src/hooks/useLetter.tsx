@@ -53,6 +53,10 @@ function useLetter() {
         body: JSON.stringify(userData),
       });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       const reader = response.body!.getReader();
       let done = false;
       while (!done) {
