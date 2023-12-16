@@ -115,7 +115,7 @@ export default function Step8({ onClickPrev, onClickNext }: StepProps) {
 
   return (
     <MediumCategoryWrapper>
-      <Title sequence={2} sequenceShown>
+      <Title sequence={7} sequenceShown>
         <div className="flex items-center">
           <button type="button" onClick={handleClickPrevButton} aria-label="이전">
             <div className="bg-contentBackground py-[8px] px-[11px] mt-[-4px] mr-[9px] rounded-[40px]">
