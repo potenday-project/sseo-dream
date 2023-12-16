@@ -7,6 +7,7 @@ import { useLetterStore } from '../stores/letter';
 import useToast from '../hooks/useToast';
 
 import { TOAST_MESSAGE } from '../constants/result';
+import FooterButton from './shared/button/FooterButton';
 
 type ResultModifyProps = {
   initialText: string;
@@ -46,7 +47,8 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
   };
 
   return (
-    <div className="p-10 fixed left-0 top-0 w-full h-full bg-background overflow-auto">
+    // FIXME: 병합 후 배경색상 확인
+    <div className="p-10 absolute left-0 top-0 w-full h-full bg-background-dark overflow-auto z-30">
       <ResultContent
         tabs={tabs}
         onClickTab={onClickTab}
@@ -55,13 +57,18 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
         isEditable
         actions={<IconButton icon="close" onClick={handleClickClose} />}
       />
-      <div>
-        <button type="button" onClick={handleClickSaveButton}>
+      <div className="flex gap-[11px] mt-[16px]">
+        <FooterButton
+          onClick={handleClickSaveButton}
+          isActive
+          className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
           수정 완료
-        </button>
-        <button type="button" onClick={handleClickCopyButton}>
+        </FooterButton>
+        <FooterButton
+          onClick={handleClickCopyButton}
+          className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
           복사하기
-        </button>
+        </FooterButton>
       </div>
     </div>
   );

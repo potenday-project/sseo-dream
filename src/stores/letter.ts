@@ -8,7 +8,7 @@ export type UserSelectionResult = {
   recipientCategory: string;
   recipientName: string;
   senderName: string;
-  sentenceLength: number;
+  letterSentence: '짧은 글' | '중간 글' | '긴 글' | '';
   type: string;
 };
 
@@ -20,6 +20,7 @@ type GeneratedLetterContent = {
 export type EtcShown = {
   type: boolean;
   recipientCategory: boolean;
+  letterSentence: boolean;
 };
 
 const INITIAL_USER_SELECTION_RESULT: UserSelectionResult = {
@@ -29,7 +30,7 @@ const INITIAL_USER_SELECTION_RESULT: UserSelectionResult = {
   recipientName: '',
   senderName: '',
   contentDescription: '',
-  sentenceLength: 0,
+  letterSentence: '',
 };
 
 const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
@@ -42,6 +43,7 @@ const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
 const INITIAL_ETC_SHOWN: EtcShown = {
   type: false,
   recipientCategory: false,
+  letterSentence: false,
 };
 
 const INITIAL_STATE = {

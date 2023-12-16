@@ -15,10 +15,11 @@ export const STEPS = [
   'purpose',
   'type',
   'recipientCategory',
-  'senderName',
-  'recipientName',
+  'Names',
   'contentDescription',
-  'sentenceLength',
+  'letterSentence',
+  'loader',
+  'result',
 ] as const;
 
 export const SENDER_RECIPIENT = [

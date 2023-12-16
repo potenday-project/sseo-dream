@@ -4,7 +4,7 @@ import HeaderTags from '../header/HeaderTags';
 
 export function MediumCategoryWrapper({ children }: PropsWithChildren) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
       <HeaderTags />
       {children}
     </div>

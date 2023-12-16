@@ -6,7 +6,7 @@ const DUMMY_DATA = {
   recipientCategory: '동료',
   recipientName: '동료들에게',
   senderName: '조효형',
-  sentenceLength: 10,
+  letterSentence: 10,
   type: '축하/감사',
 } as const;
 
