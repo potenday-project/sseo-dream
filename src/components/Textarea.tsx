@@ -33,7 +33,7 @@ function Textarea({ value, placeholder, isEditable, isLoading = false, onChange 
     <div className="relative min-h-[416px] bg-contentBackground rounded-[6px] rounded-tl-none overflow-hidden">
       <textarea
         ref={textareaRef}
-        className={`resize-none w-full min-h-[416px] p-[14px] focus:outline-none bg-contentBackground`}
+        className="resize-none w-full min-h-[416px] p-[14px] focus:outline-none bg-contentBackground"
         value={value}
         onChange={handleInput}
         placeholder={placeholder}
