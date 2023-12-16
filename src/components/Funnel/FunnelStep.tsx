@@ -1,6 +1,6 @@
-import { NonEmptyArray, StepProps } from './types';
+import { NonEmptyArray, FunnelStepProps } from './types';
 
-function FunnelStep<Steps extends NonEmptyArray<string>>({ children }: StepProps<Steps>) {
+function FunnelStep<Steps extends NonEmptyArray<string>>({ children }: FunnelStepProps<Steps>) {
   return <>{children}</>;
 }
 

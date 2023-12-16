@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 import FunnelMain from '../components/funnel/FunnelMain';
 import FunnelStep from '../components/funnel/FunnelStep';
 
-import { NonEmptyArray, StepProps, FunnelProps } from '../components/funnel/types';
+import { NonEmptyArray, FunnelStepProps, FunnelProps } from '../components/funnel/types';
 
 const useFunnel = <Steps extends NonEmptyArray<string>>(_: Steps, defaultStep: Steps[number]) => {
   const [step, setStep] = useState(defaultStep);
@@ -13,7 +13,7 @@ const useFunnel = <Steps extends NonEmptyArray<string>>(_: Steps, defaultStep: S
       Object.assign(
         (props: Omit<FunnelProps<Steps>, 'step'>) => <FunnelMain step={step} {...props} />,
         {
-          Step: (props: StepProps<Steps>) => <FunnelStep {...props} />,
+          Step: (props: FunnelStepProps<Steps>) => <FunnelStep {...props} />,
         },
       ),
     [step],

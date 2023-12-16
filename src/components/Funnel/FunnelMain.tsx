@@ -1,6 +1,6 @@
 import { Children, isValidElement } from 'react';
 
-import type { FunnelProps, NonEmptyArray, StepProps } from './types';
+import type { FunnelProps, NonEmptyArray, FunnelStepProps } from './types';
 
 export function FunnelMain<Steps extends NonEmptyArray<string>>({
   step,
@@ -8,7 +8,9 @@ export function FunnelMain<Steps extends NonEmptyArray<string>>({
 }: FunnelProps<Steps>) {
   const validChildren = Children.toArray(children).filter(isValidElement);
 
-  const targetStep = validChildren.find((child) => (child.props as StepProps<Steps>).name === step);
+  const targetStep = validChildren.find(
+    (child) => (child.props as FunnelStepProps<Steps>).name === step,
+  );
 
   return <>{targetStep}</>;
 }
