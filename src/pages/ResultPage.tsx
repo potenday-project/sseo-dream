@@ -9,6 +9,13 @@ import useToast from '../hooks/useToast';
 
 import { useLetterStore } from '../stores/letter';
 import { TAB_LABEL, TOAST_MESSAGE } from '../constants/result';
+import { MediumCategoryWrapper } from '../components/shared/wrapper/Wrapper';
+import HeaderTags from '../components/header/HeaderTags';
+import Title from '../components/shared/title/Title';
+import PrevNextButtons from '../components/PrevNextButtons';
+
+import IconPrev from '../assets/icon-prev.svg';
+import FooterButton from '../components/shared/button/FooterButton';
 
 const DUMMY_DATA = {
   contentDescription: '나는 헤커톤을 진행하고 있는 동료들에게 응원의 글을 쓰고 싶어',
@@ -96,6 +103,10 @@ function ResultPage() {
     resetLetterStore();
   };
 
+  const handleClickPrevButton = () => {
+    // FIXME: 이전 페이지로 이동 구현 필요
+  };
+
   if (isEditable) {
     return (
       <ResultModify
@@ -108,29 +119,43 @@ function ResultPage() {
   }
 
   return (
-    <div className="p-10">
-      <ResultContent
-        tabs={tabs}
-        onClickTab={handleClickTab}
-        text={textLookup[status]}
-        disabled={disabled}
-        actions={<IconButton icon="reset" onClick={handleClickResetButton} disabled={disabled} />}
-        isLoading={status === 'loading'}
-      />
-      <div>
-        <div>
-          <button type="button" onClick={handleClickModifyButton} disabled={disabled}>
-            수정하기
+    <MediumCategoryWrapper>
+      <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
+      <Title sequence={2} sequenceShown>
+        <div className="flex items-center">
+          <button type="button" onClick={handleClickPrevButton}>
+            <div className="bg-contentBackground py-[8px] px-[11px] mr-[9px] rounded-[40px]">
+              <IconPrev />
+            </div>
           </button>
-          <button type="button" onClick={handleClickCopyButton} disabled={disabled}>
-            복사하기
-          </button>
+          <span>써드렸어요</span>
         </div>
-        <button type="button" onClick={handleClickNewLetterButton} disabled={disabled}>
-          새글 쓰기
-        </button>
+      </Title>
+
+      <div className="p-5">
+        <ResultContent
+          tabs={tabs}
+          onClickTab={handleClickTab}
+          text={textLookup[status]}
+          disabled={disabled}
+          actions={<IconButton icon="reset" onClick={handleClickResetButton} disabled={disabled} />}
+          isLoading={status === 'loading'}
+        />
+        <div className="mt-[36px]">
+          <div className="flex gap-[11px] mb-[20px]">
+            <FooterButton type="button" onClick={handleClickModifyButton} disabled={disabled}>
+              수정하기
+            </FooterButton>
+            <FooterButton type="button" onClick={handleClickCopyButton} disabled={disabled}>
+              복사하기
+            </FooterButton>
+          </div>
+          <FooterButton type="button" onClick={handleClickNewLetterButton} disabled={disabled}>
+            새글 쓰기
+          </FooterButton>
+        </div>
       </div>
-    </div>
+    </MediumCategoryWrapper>
   );
 }
 

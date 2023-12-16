@@ -7,6 +7,7 @@ import { useLetterStore } from '../stores/letter';
 import useToast from '../hooks/useToast';
 
 import { TOAST_MESSAGE } from '../constants/result';
+import FooterButton from './shared/button/FooterButton';
 
 type ResultModifyProps = {
   initialText: string;
@@ -56,13 +57,13 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
         isEditable
         actions={<IconButton icon="close" onClick={handleClickClose} />}
       />
-      <div>
-        <button type="button" onClick={handleClickSaveButton}>
+      <div className="flex gap-[11px] mt-[16px]">
+        <FooterButton type="button" onClick={handleClickSaveButton} isActive>
           수정 완료
-        </button>
-        <button type="button" onClick={handleClickCopyButton}>
+        </FooterButton>
+        <FooterButton type="button" onClick={handleClickCopyButton}>
           복사하기
-        </button>
+        </FooterButton>
       </div>
     </div>
   );
