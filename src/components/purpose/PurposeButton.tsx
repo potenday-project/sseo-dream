@@ -1,12 +1,19 @@
-import { Purpose } from './types';
+import { PropsWithChildren } from 'react';
+import { PURPOSES } from '../../constants/result';
 
-export default function PurposeButton({ title, svgName }: Purpose) {
-  const svgFileName = `${svgName}.svg`;
+type PurposeButtonProps = {
+  purpose: (typeof PURPOSES)[number];
+  onClick: () => void;
+};
 
+export default function PurposeButton({ purpose, onClick }: PropsWithChildren<PurposeButtonProps>) {
   return (
-    <div className="flex flex-col m-1 items-center justify-center w-full py-14 bg-neutral-700 rounded-3xl text-white bg-contentBackground">
-      <img src={svgFileName} alt={title} />
-      <div className="pt-8 text-lg font-bold">{title}</div>
-    </div>
+    <button
+      type="button"
+      className="flex flex-col m-1 items-center justify-center w-full py-14 bg-neutral-700 rounded-3xl text-white bg-contentBackground cursor-pointer"
+      onClick={onClick}>
+      <img src={`${purpose.svgName}.svg`} alt={purpose.content} />
+      <div className="pt-8 text-lg font-bold">{purpose.content}</div>
+    </button>
   );
 }

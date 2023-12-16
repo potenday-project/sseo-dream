@@ -1,22 +1,30 @@
 import PurposeButton from './PurposeButton';
 
-import { Purpose } from './types';
+import { PURPOSES } from '../../constants/result';
+import { useLetterStore } from '../../stores/letter';
 
-const purposes: Purpose[] = [
-  { title: '업무', contents: '업무', svgName: 'working' },
-  { title: '개인', contents: '개인', svgName: 'personal' },
-];
+type PurposeButtons = {
+  onClickNext: () => void;
+};
 
-function PurposeButtons() {
+function PurposeButtons({ onClickNext }: PurposeButtons) {
+  const { setUserSelectionResult, userSelectionResult } = useLetterStore((state) => state);
+
   return (
     <div className="m-1 px-5 h-[80vh] flex items-center justify-center">
-      {purposes.map((purpose) => (
+      {PURPOSES.map((purpose) => (
         <PurposeButton
-          key={purpose.title}
-          title={purpose.title}
-          contents={purpose.contents}
-          svgName={purpose.svgName}
-        />
+          key={purpose.content}
+          purpose={purpose}
+          onClick={() => {
+            setUserSelectionResult({
+              ...userSelectionResult,
+              contentDescription: purpose.content,
+            });
+            onClickNext();
+          }}>
+          {purpose.content}
+        </PurposeButton>
       ))}
     </div>
   );
