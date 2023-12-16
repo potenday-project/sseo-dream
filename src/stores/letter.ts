@@ -20,6 +20,7 @@ type GeneratedLetterContent = {
 export type EtcShown = {
   type: boolean;
   recipientCategory: boolean;
+  sentenceLength: boolean;
 };
 
 const INITIAL_USER_SELECTION_RESULT: UserSelectionResult = {

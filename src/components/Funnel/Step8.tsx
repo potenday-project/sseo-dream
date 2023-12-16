@@ -1,38 +1,31 @@
 import { useEffect, useState } from 'react';
 
-import IconButton from '../components/IconButton';
-import ResultContent from '../components/ResultContent';
-import ResultModify from '../components/ResultModify';
+import IconButton from '../IconButton';
+import ResultContent from '../ResultContent';
+import ResultModify from '../ResultModify';
 
-import useLetter from '../hooks/useLetter';
-import useToast from '../hooks/useToast';
+import useLetter from '../../hooks/useLetter';
+import useToast from '../../hooks/useToast';
 
-import { useLetterStore } from '../stores/letter';
-import { TAB_LABEL, TOAST_MESSAGE } from '../constants/result';
-import { MediumCategoryWrapper } from '../components/shared/wrapper/Wrapper';
-import HeaderTags from '../components/header/HeaderTags';
-import Title from '../components/shared/title/Title';
-import PrevNextButtons from '../components/PrevNextButtons';
+import { useLetterStore } from '../../stores/letter';
+import { TAB_LABEL, TOAST_MESSAGE } from '../../constants/result';
+import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
+import Title from '../shared/title/Title';
 
-import IconPrev from '../assets/icon-prev.svg';
-import FooterButton from '../components/shared/button/FooterButton';
+import IconPrev from '../../assets/icon-prev.svg';
+import FooterButton from '../shared/button/FooterButton';
+import { StepProps } from './types';
 
-const DUMMY_DATA = {
-  contentDescription: '나는 헤커톤을 진행하고 있는 동료들에게 응원의 글을 쓰고 싶어',
-  purpose: '개인',
-  recipientCategory: '동료',
-  recipientName: '동료들에게',
-  senderName: '조효형',
-  sentenceLength: 10,
-  type: '축하/감사',
-} as const;
-
-function ResultPage() {
+export default function Step8({ onClickPrev, onClickNext }: StepProps) {
   const [isEditable, setIsEditable] = useState(false);
   const { onShowToast } = useToast();
   const { data = '', postUserData, status } = useLetter();
-  const { generatedLetterContents, setGeneratedLetterContents, resetLetterStore } =
-    useLetterStore();
+  const {
+    userSelectionResult,
+    generatedLetterContents,
+    setGeneratedLetterContents,
+    resetLetterStore,
+  } = useLetterStore();
 
   const tabs = generatedLetterContents.map((content, index) => ({
     label: TAB_LABEL[index],
@@ -71,7 +64,7 @@ function ResultPage() {
       },
     ];
     setGeneratedLetterContents(newGeneratedLetterContents);
-    postUserData(DUMMY_DATA);
+    postUserData(userSelectionResult);
   };
 
   useEffect(() => {
@@ -99,28 +92,29 @@ function ResultPage() {
   };
 
   const handleClickNewLetterButton = () => {
-    // FIXME: 초기화면으로 이동 구현 필요
+    onClickNext();
     resetLetterStore();
   };
 
   const handleClickPrevButton = () => {
-    // FIXME: 이전 페이지로 이동 구현 필요
+    onClickPrev();
   };
 
   if (isEditable) {
     return (
-      <ResultModify
-        initialText={textLookup[status]}
-        tabs={tabs}
-        onClickTab={handleClickTab}
-        setIsEditable={setIsEditable}
-      />
+      <MediumCategoryWrapper>
+        <ResultModify
+          initialText={textLookup[status]}
+          tabs={tabs}
+          onClickTab={handleClickTab}
+          setIsEditable={setIsEditable}
+        />
+      </MediumCategoryWrapper>
     );
   }
 
   return (
     <MediumCategoryWrapper>
-      <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
       <Title sequence={2} sequenceShown>
         <div className="flex items-center">
           <button type="button" onClick={handleClickPrevButton}>
@@ -143,20 +137,29 @@ function ResultPage() {
         />
         <div className="mt-[36px]">
           <div className="flex gap-[11px] mb-[20px]">
-            <FooterButton type="button" onClick={handleClickModifyButton} disabled={disabled}>
+            <FooterButton
+              onClick={handleClickModifyButton}
+              disabled={disabled}
+              className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
               수정하기
             </FooterButton>
-            <FooterButton type="button" onClick={handleClickCopyButton} disabled={disabled}>
+            <FooterButton
+              onClick={handleClickCopyButton}
+              disabled={disabled}
+              className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
               복사하기
             </FooterButton>
           </div>
-          <FooterButton type="button" onClick={handleClickNewLetterButton} disabled={disabled}>
-            새글 쓰기
-          </FooterButton>
+          <div>
+            <FooterButton
+              onClick={handleClickNewLetterButton}
+              disabled={disabled}
+              className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
+              새글 쓰기
+            </FooterButton>
+          </div>
         </div>
       </div>
     </MediumCategoryWrapper>
   );
 }
-
-export default ResultPage;

@@ -48,7 +48,7 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
 
   return (
     // FIXME: 병합 후 배경색상 확인
-    <div className="p-10 fixed left-0 top-0 w-full h-full bg-background overflow-auto">
+    <div className="p-10 absolute left-0 top-0 w-full h-full bg-background-dark overflow-auto z-30">
       <ResultContent
         tabs={tabs}
         onClickTab={onClickTab}
@@ -58,10 +58,15 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
         actions={<IconButton icon="close" onClick={handleClickClose} />}
       />
       <div className="flex gap-[11px] mt-[16px]">
-        <FooterButton type="button" onClick={handleClickSaveButton} isActive>
+        <FooterButton
+          onClick={handleClickSaveButton}
+          isActive
+          className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
           수정 완료
         </FooterButton>
-        <FooterButton type="button" onClick={handleClickCopyButton}>
+        <FooterButton
+          onClick={handleClickCopyButton}
+          className="w-full py-4 text-center rounded-md text-base font-bold text-white bg-neutral-700 whitespace-nowrap cursor-pointer bg-contentBackground text-white">
           복사하기
         </FooterButton>
       </div>

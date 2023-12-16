@@ -27,7 +27,7 @@ export default function Alert() {
     <Portal>
       {isShow && (
         <Toast
-          className={`mx-5 px-3 py-4 absolute left-0 right-0 bottom-[20px] rounded-lg bg-${type}-wrapper animate-fadeInOut`}>
+          className={`mx-5 px-3 py-4 absolute left-0 right-0 bottom-[20px] rounded-lg bg-${type}-wrapper animate-fadeInOut z-50`}>
           <div className="flex items-center">
             <Toast.AlertIcon className="mr-2">{alertIcon}</Toast.AlertIcon>
             <div className="flex flex-col items-start">

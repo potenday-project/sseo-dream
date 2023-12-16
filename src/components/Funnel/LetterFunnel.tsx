@@ -3,6 +3,9 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
 import Step5 from './Step5';
+import Step6 from './Step6';
+import Step7 from './Step7';
+import Step8 from './Step8';
 
 import useFunnel from '../../hooks/useFunnel';
 
@@ -27,27 +30,31 @@ export default function LetterFunnel() {
         />
       </Funnel.Step>
       <Funnel.Step name="recipientCategory">
-        <Step3 onClickPrev={() => setStep('type')} onClickNext={() => setStep('senderName')} />
+        <Step3 onClickPrev={() => setStep('type')} onClickNext={() => setStep('Names')} />
       </Funnel.Step>
-      <Funnel.Step name="senderName">
+      <Funnel.Step name="Names">
         <Step4
           onClickPrev={() => setStep('recipientCategory')}
-          onClickNext={() => setStep('recipientName')}
-        />
-      </Funnel.Step>
-      <Funnel.Step name="recipientName">
-        <Step5
-          onClickPrev={() => setStep('senderName')}
           onClickNext={() => setStep('contentDescription')}
         />
       </Funnel.Step>
       <Funnel.Step name="contentDescription">
-        <button type="button" onClick={() => setStep('sentenceLength')}>
-          contentDescription
-        </button>
+        <Step5 onClickPrev={() => setStep('Names')} onClickNext={() => setStep('sentenceLength')} />
       </Funnel.Step>
       <Funnel.Step name="sentenceLength">
-        <button type="button">sentenceLength</button>
+        <Step6
+          onClickPrev={() => setStep('contentDescription')}
+          onClickNext={() => setStep('loader')}
+        />
+      </Funnel.Step>
+      <Funnel.Step name="loader">
+        <Step7
+          onClickPrev={() => setStep('sentenceLength')}
+          onClickNext={() => setStep('result')}
+        />
+      </Funnel.Step>
+      <Funnel.Step name="result">
+        <Step8 onClickPrev={() => setStep('sentenceLength')} onClickNext={() => setStep('type')} />
       </Funnel.Step>
     </Funnel>
   );

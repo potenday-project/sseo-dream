@@ -4,10 +4,10 @@ import { useLetterStore } from '../../stores/letter';
 
 import PrevNextButtons from '../PrevNextButtons';
 import ValueList from '../ValueList';
-import HeaderTags from '../header/HeaderTags';
 import SentenceAlert from '../setence-length/SentenceAlert';
 import Title from '../shared/title/Title';
 import { MediumCategoryWrapper } from '../shared/wrapper/Wrapper';
+import { StepProps } from './types';
 
 const SENTENCE_LENGTH_DATA = [
   {
@@ -30,43 +30,31 @@ const SENTENCE_LENGTH_DATA = [
   },
 ];
 
-export default function Step6() {
+export default function Step6({ onClickPrev, onClickNext }: StepProps) {
   const [isOpenAlert, setIsOpenAlert] = useState(false);
-  const { userSelectionResult, setUserSelectionResult } = useLetterStore();
   const description = '~' + SENTENCE_LENGTH_DATA.map((data) => data.description).join('/ ~');
   const valueList = SENTENCE_LENGTH_DATA.map((data) => data.title);
 
-  const handleClickValue = (value: string) => {
-    const sentenceLength = SENTENCE_LENGTH_DATA.find((data) => data.title === value)?.length ?? 100;
-    setUserSelectionResult({ ...userSelectionResult, sentenceLength: sentenceLength });
-  };
-
   const handleClickNext = () => {
     setIsOpenAlert(true);
-    console.log('aa');
   };
   const handleClickAlertClose = () => {
     setIsOpenAlert(false);
   };
   const handleClickAlertConfirm = () => {
     setIsOpenAlert(false);
-    // FIXME: loading 페이지로 이동
+    onClickNext();
   };
 
   return (
     <>
       <MediumCategoryWrapper>
-        {/*// FIXME: HeaderTags는 MediumCategoryWrapper 안에 있어야 함*/}
-        <HeaderTags selectedDataList={['업무목적', '인사/안부', '상사']} />
         <Title sequence={5} sequenceShown>
           <div>어느정도 길이로 써드릴까요?</div>
           <div className="font-light text-sm">{description}</div>
         </Title>
-        <ValueList valueList={valueList} onClick={handleClickValue} />
-        <PrevNextButtons
-          disabledNext={!userSelectionResult.sentenceLength}
-          onClickNext={handleClickNext}
-        />
+        <ValueList valueList={valueList} selectionKey="sentenceLength" />
+        <PrevNextButtons onClickNext={handleClickNext} onClickPrev={onClickPrev} />
       </MediumCategoryWrapper>
       {isOpenAlert && (
         <SentenceAlert onClose={handleClickAlertClose} onConfirm={handleClickAlertConfirm} />
