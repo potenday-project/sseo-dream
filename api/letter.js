@@ -26,8 +26,8 @@ export default async function handler(req) {
 
   const letterSentenceMap = {
     '짧은 글': 100,
-    '중간 글': 200,
-    '긴 글': 300,
+    '중간 글': 300,
+    '긴 글': 500,
   };
 
   const messages = [

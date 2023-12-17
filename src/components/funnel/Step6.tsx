@@ -16,12 +16,12 @@ const SENTENCE_LENGTH_DATA = [
   {
     id: 2,
     title: '중간 글',
-    description: '200자',
+    description: '300자',
   },
   {
     id: 3,
     title: '긴 글',
-    description: '300자',
+    description: '500자',
   },
 ];
 
