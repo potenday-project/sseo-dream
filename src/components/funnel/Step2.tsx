@@ -18,6 +18,7 @@ const VALUE_LIST = {
     '그외',
   ],
   personal: ['기념일/명절', '인사/안부', '축하/감사', '위로/응원', '사과/반성', '그외'],
+  none: ['그외'],
 };
 
 export default function Step2({ onClickPrev, onClickNext }: StepProps) {
@@ -30,7 +31,7 @@ export default function Step2({ onClickPrev, onClickNext }: StepProps) {
   } else if (userSelectionResult.purpose === '개인') {
     valueList = VALUE_LIST.personal;
   } else {
-    valueList = ['그외'];
+    valueList = VALUE_LIST.none;
   }
 
   return (
