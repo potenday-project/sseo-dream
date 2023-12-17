@@ -70,9 +70,14 @@ module.exports = {
           '90%': { opacity: 1 },
           '100%': { opacity: 0 },
         },
+        'splash-fade-out': {
+          '85%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
       },
       animation: {
         fadeInOut: 'fade-in-out 3s ease-out forwards',
+        splashFadeOut: 'splash-fade-out 2.5s ease-out forwards',
       },
     },
   },

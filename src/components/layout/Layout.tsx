@@ -1,8 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
+import useSplash from '../../hooks/useSplash';
+
+import HomePage from '../SplashScreen';
+
 export default function Layout() {
+  const { isSplashVisible } = useSplash(2500);
+
   return (
-    <div className="mx-auto max-w-3xl min-h-screen h-full bg-background-dark">
+    <div className="relative mx-auto max-w-3xl min-h-screen h-full bg-background-dark">
+      {isSplashVisible && <HomePage />}
       <Outlet />
     </div>
   );
