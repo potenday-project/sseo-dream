@@ -6,9 +6,10 @@ import { EtcShown, UserSelectionResult, useLetterStore } from '../stores/letter'
 type ValueListProps = {
   valueList: string[];
   selectionKey: Extract<keyof EtcShown, keyof UserSelectionResult>;
+  etcValue: string;
 };
 
-export default function ValueList({ valueList, selectionKey }: ValueListProps) {
+export default function ValueList({ valueList, selectionKey, etcValue }: ValueListProps) {
   const { etcShown, setEtcShown, userSelectionResult, setUserSelectionResult } = useLetterStore();
 
   const handleClick = (value: string) => {
@@ -50,7 +51,7 @@ export default function ValueList({ valueList, selectionKey }: ValueListProps) {
       })}
       {etcShown[selectionKey] && (
         <Input value={userSelectionResult[selectionKey]} onChange={handleChangeInput}>
-          그외 어떤 글을 써드릴까요?
+          {etcValue}
         </Input>
       )}
     </div>
