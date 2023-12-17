@@ -9,7 +9,7 @@
 ## 참여자
 * 한우빈
    - [x] 개발 Leading
-   - [x] Frontend - 뷰페이지 관리(Funnel), UI(Toast 팝업, 대분류/중분류 페이지 총괄), 비즈니스 로직(Routing)
+   - [x] Frontend - 뷰페이지 관리(Funnel), UI(Toast Msg, 대분류/중분류 페이지 총괄), Routing, Splash screen
 
 * 조효형
    - [x] Frontend - UI(결과 페이지), API(100%), 결과페이지 기능(100%) 개발, 배포
