@@ -10,11 +10,11 @@
 ## 참여자
 * 한우빈
     * 개발 Leading
-    * FE 개발 - 화면 Funnel, UI(Toast 팝업, 대분류/중분류 화면), 비즈니스 로직(Routing) 개발
+    * Frontend - 뷰페이지 관리(Funnel), UI(Toast 팝업, 대분류/중분류 화면), 비즈니스 로직(Routing)
 * 조효형
-    * FE 개발 - UI(Dark Mode 적용), 비즈니스 로직(Routing, API 연동) 개발
+    * Frontend - UI(Dark Mode 적용), 비즈니스 로직(Routing, API 연동) 개발
 * 권택준
-    * FE 개발 - UI(대분류/중분류 화면) 개발
+    * Frontend - UI(대분류/중분류 화면) 개발
     * 매니징 - 일정관리 및 조율
 * 이하림
     * 기획 - 아이디어 제시 및 의견조율, 문서화
