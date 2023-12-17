@@ -43,7 +43,7 @@ function useLetter() {
   const [data, setData] = useState<EventData[]>([]);
   const [status, setStatus] = useState<Status>('init');
 
-  const postUserData = async (userData: UserSelectionResult) => {
+  const postUserData = async (userData: UserSelectionResult & { beforeMessages?: string[] }) => {
     setData([]);
     setStatus('loading');
     try {

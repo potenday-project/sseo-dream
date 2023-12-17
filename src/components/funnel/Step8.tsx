@@ -64,7 +64,12 @@ export default function Step8({ onClickPrev, onClickNext }: StepProps) {
       },
     ];
     setGeneratedLetterContents(newGeneratedLetterContents);
-    postUserData(userSelectionResult);
+    postUserData({
+      ...userSelectionResult,
+      ...(generatedLetterContents.length > 0 && {
+        beforeMessages: generatedLetterContents.map((content) => content.content),
+      }),
+    });
   };
 
   useEffect(() => {

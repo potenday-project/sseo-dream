@@ -32,12 +32,7 @@ const INITIAL_USER_SELECTION_RESULT: UserSelectionResult = {
   letterSentence: '',
 };
 
-const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [
-  {
-    content: '첫번째 글',
-    isActive: true,
-  },
-];
+const INITIAL_GENERATED_LETTER_CONTENTS: GeneratedLetterContent[] = [];
 
 const INITIAL_ETC_SHOWN: EtcShown = {
   type: false,
