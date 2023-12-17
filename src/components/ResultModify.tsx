@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ResultContent from './ResultContent';
 import IconButton from './IconButton';
@@ -45,6 +45,10 @@ function ResultModify({ initialText, tabs, onClickTab, setIsEditable }: ResultMo
     navigator.clipboard.writeText(text);
     onShowToast(TOAST_MESSAGE.SUCCESS, 'success');
   };
+
+  useEffect(() => {
+    setText(initialText);
+  }, [tabs]);
 
   return (
     <div className="p-10 absolute left-0 top-0 flex flex-col w-full h-full bg-background-dark overflow-auto z-30">

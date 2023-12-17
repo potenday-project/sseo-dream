@@ -9,14 +9,15 @@ type TextareaProps = {
 };
 
 function Textarea({ value, placeholder, isEditable, isLoading = false, onChange }: TextareaProps) {
-  //= {`relative min-h-[416px] bg-contentBackground rounded-[6px] rounded-tl-none overflow-hidden ${isEditable ? "h-full" ? ""}
   return (
     <div
       className={`relative min-h-[416px] bg-contentBackground rounded-[6px] rounded-tl-none overflow-hidden ${
         isEditable ? 'h-full' : ''
       }`}>
       <textarea
-        className="resize-none w-full min-h-[416px] p-[14px] focus:outline-none bg-contentBackground"
+        className={`resize-none w-full min-h-[416px] p-[14px] focus:outline-none bg-contentBackground ${
+          isEditable ? 'h-full' : ''
+        }`}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
