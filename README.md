@@ -9,19 +9,19 @@
 
 ## 참여자
 * 한우빈
-    * 개발 Leading
-    * Frontend - 뷰페이지 관리(Funnel), UI(Toast 팝업, 대분류/중분류 페이지 총괄), 비즈니스 로직(Routing)
+   - [x] 개발 Leading
+   - [x] Frontend - 뷰페이지 관리(Funnel), UI(Toast 팝업, 대분류/중분류 페이지 총괄), 비즈니스 로직(Routing)
 * 조효형
-    * Frontend - UI(Dark Mode 적용), 비즈니스 로직(Routing, API 연동) 개발
+   - [x] Frontend - UI(Dark Mode 적용), 비즈니스 로직(Routing, API 연동) 개발
 * 권택준
-    * Frontend - UI(대분류/중분류 화면) 개발
-    * 매니징 - 일정관리 및 조율
+   - [x] Frontend - UI(대분류/중분류 화면) 개발
+   - [x] 매니징 - 일정관리 및 조율
 * 이하림
-    * 기획 - 아이디어 제시 및 의견조율, 문서화
+   - [x] 기획 - 아이디어 제시 및 의견조율, 문서화
 * 강해민
-    * 디자인 - 전체설계, 전반적인 화면 디자인
+   - [x] 디자인 - 전체설계, 전반적인 화면 디자인
 * 손서현
-    * 디자인 - 부분설계, 화면에 사용할 아이콘 디자인
+   - [x] 디자인 - 부분설계, 화면에 사용할 아이콘 디자인
 
 ## 개발 환경 및 사용 Tool
 * Language
