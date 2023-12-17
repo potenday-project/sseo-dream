@@ -27,7 +27,7 @@ const SENTENCE_LENGTH_DATA = [
 
 export default function Step6({ onClickPrev, onClickNext }: StepProps) {
   const [isOpenAlert, setIsOpenAlert] = useState(false);
-  const description = '~' + SENTENCE_LENGTH_DATA.map((data) => data.description).join('/ ~');
+  const description = `~${SENTENCE_LENGTH_DATA.map((data) => data.description).join('/ ~')}`;
   const valueList = SENTENCE_LENGTH_DATA.map((data) => data.title);
 
   const handleClickNext = () => {
