@@ -6,7 +6,7 @@ import { EtcShown, UserSelectionResult, useLetterStore } from '../stores/letter'
 type ValueListProps = {
   valueList: string[];
   selectionKey: Extract<keyof EtcShown, keyof UserSelectionResult>;
-  etcValue: string;
+  etcValue?: string;
 };
 
 export default function ValueList({ valueList, selectionKey, etcValue }: ValueListProps) {
