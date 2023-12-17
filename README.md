@@ -12,7 +12,7 @@
    - [x] Frontend - 뷰페이지 관리(Funnel), UI(Toast 팝업, 대분류/중분류 페이지 총괄), 비즈니스 로직(Routing)
 
 * 조효형
-   - [x] Frontend - UI(Dark Mode 적용), 비즈니스 로직(Routing, API 연동) 개발
+   - [x] Frontend - UI(결과 페이지), API(100%), 결과페이지 기능(100%) 개발, 배포
 
 * 권택준
    - [x] Frontend - UI(대분류/중분류 화면) 개발
