@@ -60,9 +60,9 @@
     * TailwindCSS 3.3
     * Vite 5.0
     * Zustand 4.4.7
-* Deploy Environment
-    * Naver Cloud Platform
-    * CLOVA X
+* Etc
+    * Naver Hyperclova X
+    * Vercel
 
 ## 개발 일정
 - 2023.12.08 ~ 2023.12.09: 개발 환경 구성 및 CLOVA X 동작 확인
