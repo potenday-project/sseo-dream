@@ -1,6 +1,6 @@
 # [써드림](https://sseo-dream-o5m6.vercel.app/)
 
-글쓰기 어려운 당신을 위해 대신 써드리는 서비스
+써드림은 내 상황에 꼭 맞는 글을 써드리는 서비스 입니다.
 
 ## 프로젝트 소개
 
@@ -18,6 +18,25 @@
 - ‘**내 상황에 꼭 맞게 참신한 글**’을 써드림
 - ‘**개성 있고 나의 가치를 높여주는 글**’을 써드림
 - ‘**프롬프팅 걱정 없이 편하게**’ 써드림
+
+### 핵심 기능
+
+### **🔧핵심 기능**
+
+- 글 쓰려는 상황 및 목적을 간단히 클릭하여 좀 더 정교한 프롬프팅이 가능함
+
+<p align="center">
+<img width="70%" height="450px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/993b49e9-1c59-4ece-b973-53e31205dec4">
+</p>
+
+- 같은 내용으로 세 번까지 답변을 받아 한 눈에 확인할 수 있음
+
+<p align="center">
+<img width="70%" height="450px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/20f7e2de-849e-49ee-9e9e-55c28e2f82ca">
+</p>
+
+
+###
 
 ## 참여자
 * 한우빈
