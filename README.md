@@ -23,14 +23,14 @@
 
 - 글 쓰려는 상황 및 목적을 간단히 클릭하여 좀 더 정교한 프롬프팅이 가능함
 
-<img width="80%" height="500px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/993b49e9-1c59-4ece-b973-53e31205dec4">
+<img width="100%" height="500px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/993b49e9-1c59-4ece-b973-53e31205dec4">
 
 </br>
 </br>
 
 - 같은 내용으로 세 번까지 답변을 받아 한 눈에 확인할 수 있음
 
-<img width="80%" height="500px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/20f7e2de-849e-49ee-9e9e-55c28e2f82ca">
+<img width="100%" height="500px" src="https://github.com/megaptera-kr/frontend-survival-week08/assets/52212226/20f7e2de-849e-49ee-9e9e-55c28e2f82ca">
 
 ## 참여자
 * 한우빈
